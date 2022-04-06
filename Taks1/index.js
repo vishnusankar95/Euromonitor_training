@@ -8,13 +8,15 @@ function toggleacc(id){
     selectType.style.display = 'none'
 }
 
-function toggleData(id){
-    var selectData = document.getElementById(id);
-    if(selectData.style.display == 'none')
+function toggle_Account_Type(){
+    let selectData = document.getElementById("custmmerData");
+    let acc_type = document.getElementById("account_Type").value;
+    console.log("styes : ",selectData.style.display)
+    console.log("Selected item is :", acc_type)
+
     selectData.style.display = 'block'
-    else
-    selectData.style.display = 'none'
 }
+
 
 function valiteForm(){
   let name = document.getElementById("name").value;  
@@ -23,10 +25,16 @@ function valiteForm(){
   let state = document.getElementById("state").value;
   let country = document.getElementById("country").value;
   let email = document.getElementById("email").value;
+  let acc_type = document.getElementById("account_Type").value;
 
   if(age>68){
     alert("You are not eligible for account opening");
   }
-
   
+
+  let userdata = {acc_type,name,age,location,state,country,email}
+
+  let cusomer_Data = localStorage.setItem("userdata",JSON.stringify(userdata));
+  
+  window.location.href="./accountdata.html";
 }

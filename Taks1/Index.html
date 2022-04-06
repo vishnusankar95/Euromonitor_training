@@ -17,10 +17,14 @@
             </h3>
             <div id="accType">
                 <label> Select Type of Account</label>
-                <button class="acbtn" id="savings" onclick="toggleData('custmmerData')">SAVINGS</button>
-                <button class="acbtn" id="current" onclick="toggleData('custmmerData')">CURRENT</button>
+                <select name="account type" id="account_Type" onchange="toggle_Account_Type()">
+                    <option value="select">-Account Type-</option>
+                    <option value="savings">SAVINGS</option>
+                    <option value="current">CURRENT</option>
+                </select>
             </div>
-            <form id="custmmerData">
+            <div id="custmmerData">
+            <form id="custmmer_Data">
                 <div class="splitter">
                 <label class="formLabel"> Name :</label>
                 <input type="text" id="name" placeholder="Full name" required/> 
@@ -51,9 +55,10 @@
                 <input type="email" id="email" placeholder="Email Id" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required/>
                 </div>
 
-                <input type="submit" onclick="valiteForm()"></input>
-
             </form>
+
+            <input class ="submitbtn" type="submit" onclick="valiteForm()"></input>
+        </div>
         </div>
     </div>
 </body>

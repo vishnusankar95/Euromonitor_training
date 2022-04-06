@@ -20,7 +20,7 @@ body{
 
 .main label{
     font-weight: bolder;
-    margin-left: 12vw;
+    margin-left: 21.5vw;
 }
 
 #createAcc{
@@ -39,16 +39,9 @@ body{
     display: none;
 }
 
-.acbtn{
-    height: 3vw;
-    width: 25vw;
-    background-color: ghostwhite;
-    font-weight: bolder;
-    border: .1px solid rgba(0, 0, 0, 0.533);
-}
 
 form{
-    margin-left: 15vw;
+    margin-left: 10vw;
     margin-top: 3vw;
 }
 
@@ -56,6 +49,7 @@ form{
 font-size: 24px;
 color: rgba(0, 0, 0, 0.759) ;
 margin-top: 1vw;
+text-align: right;
 }
 
 input{
@@ -67,7 +61,22 @@ input{
     margin: .5vw;
 }
 
+select{
+    height: 3vw;
+    width: 25vw;
+    background-color: ghostwhite;
+    font-weight: bolder;
+    border: .1px solid rgba(0, 0, 0, 0.533);
+    margin: .5vw; 
+    text-align: center;
+}
+
 .splitter{
     display: grid;
-    grid-template-columns: 27% 60%;
+    grid-template-columns: 37% 60%;
+}
+
+.submitbtn{
+    margin-top: .8vw;
+    margin-left: 20vw;
 }
