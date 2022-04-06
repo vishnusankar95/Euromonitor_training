@@ -4,9 +4,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>EU Bank</title>
+    <link rel="stylesheet" href="./index.css">
 </head>
+
 <body>
-    
+    <div class="main">
+        <h1>Welcome to ReqRes</h1>
+        <div>
+            <h3>
+              <button id="createAcc" onclick="toggleacc('accType')" >Clik here to create a new account</button>
+            </h3>
+            <div id="accType">
+                <label> Select Type of Account</label>
+                <button class="acbtn" id="savings" onclick="toggleData('custmmerData')">SAVINGS</button>
+                <button class="acbtn" id="current" onclick="toggleData('custmmerData')">CURRENT</button>
+            </div>
+            <form id="custmmerData">
+                <div class="splitter">
+                <label class="formLabel"> Name :</label>
+                <input type="text" id="name" placeholder="Full name" required/> 
+                </div>
+
+                <div class="splitter">
+                <label class="formLabel"> Age :</label>
+                <input type="number" id="age" placeholder="Age" max="68" required/>
+                </div>
+
+                <div class="splitter">
+                <label class="formLabel"> Location :</label>
+                <input type="text" id="location" placeholder="Location" required/>
+                </div>
+
+                <div class="splitter">
+                <label class="formLabel"> State :</label>
+                <input type="text" id="state" placeholder="State" required/>
+                </div>
+                 
+                <div class="splitter">
+                <label class="formLabel"> Country :</label>
+                <input type="text" id="country" placeholder="Country" required/>
+                </div>
+
+                <div class="splitter">
+                <label class="formLabel"> Email Id :</label>
+                <input type="email" id="email" placeholder="Email Id" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required/>
+                </div>
+
+                <input type="submit" onclick="valiteForm()"></input>
+
+            </form>
+        </div>
+    </div>
 </body>
 </html>
+<script src="./index.js"></script>

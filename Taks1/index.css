@@ -1,0 +1,73 @@
+body{
+    font-family: 'Courier New', Courier, monospace  ;
+    background-color: ghostwhite;
+}
+
+.main{
+    width: 100%;
+    height: 50vw;
+    border-top: 1.2vw solid black;
+    border-left: 1.6vw solid black;
+}
+
+.main h1{
+    text-align: center;
+}
+
+.main h3{
+    text-align: center;
+}
+
+.main label{
+    font-weight: bolder;
+    margin-left: 12vw;
+}
+
+#createAcc{
+    height: 3vw;
+    width: 25vw;
+    background-color: ghostwhite;
+    font-weight: bolder;
+    border: .1px solid rgba(0, 0, 0, 0.533);
+}
+
+#accType{
+    display: none;
+}
+
+#custmmerData{
+    display: none;
+}
+
+.acbtn{
+    height: 3vw;
+    width: 25vw;
+    background-color: ghostwhite;
+    font-weight: bolder;
+    border: .1px solid rgba(0, 0, 0, 0.533);
+}
+
+form{
+    margin-left: 15vw;
+    margin-top: 3vw;
+}
+
+.formLabel{
+font-size: 24px;
+color: rgba(0, 0, 0, 0.759) ;
+margin-top: 1vw;
+}
+
+input{
+    height: 3vw;
+    width: 25vw;
+    background-color: ghostwhite;
+    font-weight: bolder;
+    border: .1px solid rgba(0, 0, 0, 0.533);
+    margin: .5vw;
+}
+
+.splitter{
+    display: grid;
+    grid-template-columns: 27% 60%;
+}
