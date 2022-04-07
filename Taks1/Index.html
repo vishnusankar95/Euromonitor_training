@@ -24,40 +24,42 @@
                 </select>
             </div>
             <div id="custmmerData">
-            <form id="custmmer_Data">
+            <form id="custmmer_Data" onsubmit="event.preventDefault()">
                 <div class="splitter">
-                <label class="formLabel"> Name :</label>
+                <label class="formLabel"> Name </label>
                 <input type="text" id="name" placeholder="Full name" required/> 
                 </div>
 
                 <div class="splitter">
-                <label class="formLabel"> Age :</label>
+                <label class="formLabel"> Age </label>
                 <input type="number" id="age" placeholder="Age" max="68" required/>
                 </div>
 
                 <div class="splitter">
-                <label class="formLabel"> Location :</label>
+                <label class="formLabel"> Location </label>
                 <input type="text" id="location" placeholder="Location" required/>
                 </div>
 
                 <div class="splitter">
-                <label class="formLabel"> State :</label>
+                <label class="formLabel"> State </label>
                 <input type="text" id="state" placeholder="State" required/>
                 </div>
                  
                 <div class="splitter">
-                <label class="formLabel"> Country :</label>
+                <label class="formLabel"> Country </label>
                 <input type="text" id="country" placeholder="Country" required/>
                 </div>
 
                 <div class="splitter">
-                <label class="formLabel"> Email Id :</label>
-                <input type="email" id="email" placeholder="Email Id" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required/>
+                <label class="formLabel"> Email Id </label>
+                <input type="text" id="email" placeholder="Email Id" required/>
                 </div>
+
+                <input class ="submitbtn" type="submit" onclick="valiteForm()"></input>
 
             </form>
 
-            <input class ="submitbtn" type="submit" onclick="valiteForm()"></input>
+           
         </div>
         </div>
     </div>

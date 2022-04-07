@@ -41,8 +41,8 @@ body{
 
 
 form{
-    margin-left: 10vw;
-    margin-top: 3vw;
+    margin-left: 7vw;
+    margin-top: 2vw;
 }
 
 .formLabel{
@@ -76,7 +76,32 @@ select{
     grid-template-columns: 37% 60%;
 }
 
+.splitter1{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    text-align: right;
+}
+
 .submitbtn{
-    margin-top: .8vw;
-    margin-left: 20vw;
+    margin-top: 1.5vw;
+    margin-left: 29vw;
+}
+
+.acc_dtls{
+    font-size: 1.5vw;
+    color: rgba(0, 0, 0, 0.678);
+    text-align: right;
+    margin-top: 0.4vw;
+}
+
+.acc_data_formatter{
+    height: auto;
+    margin-left: 0vw;
+}
+
+span{
+    text-align: left;
+    font-size: 2vw;
+    margin-left: 1vw;
+    font-weight:500 ;
 }
