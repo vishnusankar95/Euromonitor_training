@@ -56,6 +56,17 @@
                 <input type="text" id="email" placeholder="Email Id" required/>
                 </div>
 
+                <div id="dep_sav">
+                    <label class="formLabel"> Deposite </label>
+                    <input type="number" id="saving_dep" placeholder="Deposite 500 minimum to start a savings account" 
+                    required min="500" />
+                    </div>
+
+                <div id="dep_cur">
+                        <label class="formLabel"> Deposite </label>
+                        <input type="number" id="current_dep" placeholder="Deposite 800 minimum to start a Current account" required min="800"/>
+                </div>
+
                 <input class ="submitbtn" type="submit" onclick="valiteForm()"></input>
 
             </form>

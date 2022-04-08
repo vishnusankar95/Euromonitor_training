@@ -11,10 +11,20 @@ function toggleacc(id){
 function toggle_Account_Type(){
     let selectData = document.getElementById("custmmerData");
     let acc_type = document.getElementById("account_Type").value;
-    console.log("styes : ",selectData.style.display)
-    console.log("Selected item is :", acc_type)
-    if(acc_type== "savings" || acc_type == "current")
+    let dep_sav = document.getElementById("dep_sav")
+    let dep_cur = document.getElementById("dep_cur")
+    // console.log("styes : ",selectData.style.display)
+    // console.log("Selected item is :", acc_type)
+    if(acc_type== "savings" ){
     selectData.style.display = 'block';
+    dep_sav.style.display = 'block'
+    dep_cur.style.display = 'none';
+    }
+    else if ( acc_type == "current"){
+      selectData.style.display = 'block';
+      dep_cur.style.display = 'block';
+      dep_sav.style.display = 'none'
+    }
     else
     selectData.style.display = 'none';
 }
@@ -29,9 +39,12 @@ function valiteForm(){
   let email = document.getElementById("email").value;
   let acc_type = document.getElementById("account_Type").value;
   let acc_nm = ( Math.random().toString().substring(2, 14));
-  let acc_num = "";
+
+  let acc_num = ""
+  let yb ;
   let submitOk = true;
   let filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  
 
   //validators
 
@@ -55,7 +68,7 @@ function valiteForm(){
   
   let d = new Date( age );
   if(td>d){
-  let yb ;
+ 
 if ( !!d.valueOf() ) { // Valid date
     year = d.getFullYear();
     month = d.getMonth();
@@ -115,12 +128,42 @@ console.log("age :", yb)
   }
   else{
 
-    let userdata = {acc_type,name,age,location,state,country,email,acc_num}
+    if(acc_type == "savings"){
+      let deposit = document.getElementById("saving_dep").value; 
+      if(deposit<500){
+        alert("Minimum 500 required to open Savings account")
+        submitOk = false;
+      }
+     
 
-    let cusomer_Data = localStorage.setItem("userdata",JSON.stringify(userdata));
+      let userdata = {acc_type,name,age,location,state,country,email,acc_num,yb,deposit}
 
-    pageshifter()
-    return true
+      let cusomer_Data = localStorage.setItem("userdata",JSON.stringify(userdata));
+  
+      pageshifter()
+      return true
+    }
+    else if(acc_type == "current"){
+      let deposit = document.getElementById("current_dep").value;
+      if(deposit<800){
+        alert("Minimum 800 required to open Current account")
+        submitOk = false;
+      }
+      
+
+      let userdata = {acc_type,name,age,location,state,country,email,acc_num,yb,deposit}
+
+      let cusomer_Data = localStorage.setItem("userdata",JSON.stringify(userdata));
+  
+      pageshifter()
+      return true
+    }
+    else{
+      alert("Something went wrong, Please try again")
+      return false
+    }
+
+
   }
   
 }
@@ -138,7 +181,7 @@ function ValidateEmail(email)
 
 function pageshifter(){
   console.log(1234)
-//window.location.href="./accountdata.html";
+window.location.href="./accountdata.html";
 }
 
 //trial 

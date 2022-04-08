@@ -105,3 +105,15 @@ span{
     margin-left: 1vw;
     font-weight:500 ;
 }
+
+#dep_sav{
+    display: none;
+}
+
+/* #acc_bal_sav{
+    display: none;
+}
+
+#acc_bal_cur{
+    display: none;
+} */
