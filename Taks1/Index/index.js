@@ -39,15 +39,65 @@ function valiteForm(){
     submitOk = false;
   }
   
-  if(age>68){
-    alert("You are not eligible for account opening");
-    submitOk = false;
-  }
 
   if(!ValidateEmail(email)){
     submitOk = false;
   }
 
+  //age Calculator
+  let td =  new Date( );
+  year = td.getFullYear();
+  month = td.getMonth();
+  day = td.getDate();
+  // console.log("Year : ",year)
+  // console.log("month : ",month+1)
+  // console.log("day : ",day)
+  
+  let d = new Date( age );
+  if(td>d){
+  let yb ;
+if ( !!d.valueOf() ) { // Valid date
+    year = d.getFullYear();
+    month = d.getMonth();
+    day = d.getDate();
+   
+     yb = td.getFullYear() - d.getFullYear();
+    if(yb<0){
+      alert("Invalid date of birth")
+    }
+    else{
+      let mb = td.getMonth() - d.getMonth();
+      if(mb < 0){
+        yb -=1;
+      }
+      else if(mb == 0){
+        console.log("month of birth :",mb)
+       let db = td.getDate() - d.getDate();
+       if(db > 0){
+        yb -=1;
+      }
+      }    
+      // console.log(" date of birth :",db)    
+      if(yb>68){
+        alert("You are not eligible for account opening");
+        submitOk = false;
+      }
+    }
+    // console.log("Year : ",year)
+    // console.log("month : ",month+1)
+    // console.log("day : ",day)
+} else { 
+  /* Invalid date */
+  alert("Invalid date of birth")
+  submitOk = false;
+ }
+
+console.log("age :", yb)
+  }
+  else{
+    alert("Invalid date of birth")
+    submitOk = false;
+  }
   //Account number Creator
 
   if(acc_type == "savings"){
@@ -88,5 +138,8 @@ function ValidateEmail(email)
 
 function pageshifter(){
   console.log(1234)
-window.location.href="./accountdata.html";
+//window.location.href="./accountdata.html";
 }
+
+//trial 
+
