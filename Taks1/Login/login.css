@@ -93,3 +93,19 @@ h1{
     background-color: ghostwhite;
     margin-left: 27vw;
 }
+
+#transaction{
+    display: none;
+}
+
+#withdrow_div{
+    display: none;
+}
+
+#new_data{
+    display: none;
+}
+
+#deposite_div{
+    display: none;
+}
