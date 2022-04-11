@@ -84,4 +84,13 @@ strong{
 .acc_open_name{
     padding: 5vw;
     color: ghostwhite;
+    font-size: 24px;
+}
+
+.black_box{
+    margin-top: 6.5vw;
+}
+
+.st_name{
+    font-size: 22px;
 }
