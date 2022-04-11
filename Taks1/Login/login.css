@@ -96,6 +96,7 @@ h1{
 
 #transaction{
     display: none;
+    margin-left: 20vw;
 }
 
 #withdrow_div{
