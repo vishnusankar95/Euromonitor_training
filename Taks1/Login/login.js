@@ -1,9 +1,10 @@
 let data = JSON.parse(localStorage.getItem("userdata"));
+
+let personal_data;
 function check(){
 
 let login_acc = document.getElementById("input_acc").value ;
 //console.log(login_acc)
-
 for(let user of data){
     if(login_acc == user.acc_num){
 
@@ -19,6 +20,7 @@ for(let user of data){
        let account_type = user.acc_type;
 
        let login_data = {name,accNum,age,dob,aclocation,state,country,email,savings_depo,account_type}
+       personal_data = login_data;
        display(login_data)
     }
 
@@ -92,20 +94,22 @@ function withdrow(){
 
    function check_withdrow(){
     let val = document.getElementById("withdraw_val").value;
+    let account_type = personal_data.account_type;
     //console.log("val ", val)
     if(val == ""){
         alert("Type the amount to withdrow")
     }
     else{
+       
      if( account_type == "savings"){
          //console.log(123)
         let new_bal = checkout_sav_withdrawel(val)
         var new_data = document.getElementById("new_data");
-        document.getElementById("acc_name").innerHTML = name;    
-        document.getElementById("acc_num").innerHTML = accNum;
-        document.getElementById("acc_email").innerHTML = email;
+        document.getElementById("account_name").innerHTML = personal_data.name;    
+        document.getElementById("account_num").innerHTML = personal_data.accNum;
+        document.getElementById("account_email").innerHTML = personal_data.email;
+        personal_data.savings_depo = new_bal;
         document.getElementById("acc_bal_sav").innerHTML = new_bal;
-        datasave(new_bal)
 
         new_data.style.display = 'block'
      }
@@ -114,10 +118,10 @@ function withdrow(){
          let new_bal = checkout_cur_withdrawel(val)
          //console.log(new_bal)
         var new_data = document.getElementById("new_data");
-        console.log(name)
-        document.getElementById("acc_name").innerHTML = name;    
-        document.getElementById("acc_num").innerHTML = accNum;
-        document.getElementById("acc_email").innerHTML = email;
+        document.getElementById("account_name").innerHTML = personal_data.name;    
+        document.getElementById("account_num").innerHTML =  personal_data.accNum;
+        document.getElementById("account_email").innerHTML = personal_data.email;
+        personal_data.savings_depo = new_bal;
         document.getElementById("acc_bal_sav").innerHTML = new_bal;
         new_data.style.display = 'block'
 
@@ -126,6 +130,7 @@ function withdrow(){
 
    
 }
+
 
 function check_deposite(){
     let val = document.getElementById("deposite_val").value;
@@ -136,7 +141,7 @@ function check_deposite(){
     else{
      if( account_type == "savings"){
         
-        let new_bal = Number(savings_depo) +Number(val);
+        let new_bal = Number(personal_data.savings_depo) +Number(val);
         console.log("new ", new_bal)
         var new_data = document.getElementById("new_data");
         document.getElementById("acc_name").innerHTML = name;    
@@ -149,7 +154,7 @@ function check_deposite(){
      }
      else if(account_type == "current"){
 
-         let new_bal = Number(savings_depo) +Number(val);
+         let new_bal = Number(personal_data.savings_depo) +Number(val);
         var new_data = document.getElementById("new_data");
         console.log(name)
         document.getElementById("acc_name").innerHTML = name;    
@@ -165,19 +170,19 @@ function check_deposite(){
 
 
 function  checkout_sav_withdrawel(val){
-    if(val > savings_depo){
+    if(val > personal_data.savings_depo){
         alert("you cannot withdraw the amount due to insufficient balance")
     }else{
-        let new_bal = savings_depo - val;
+        let new_bal = personal_data.savings_depo - val;
         return new_bal;       
     }
 }
 
 function  checkout_cur_withdrawel(val){
-    if(val > savings_depo){
+    if(val > personal_data.savings_depo){
         alert("that Balance is less and u need to use OverDraft")
     }else{
-        let new_bal = savings_depo - val;
+        let new_bal = personal_data.savings_depo - val;
        
         return new_bal;       
     }
