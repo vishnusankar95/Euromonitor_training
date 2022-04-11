@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./login.css" />
+</head>
+<body>
+    <div class="body_main">
+    <div class="main">
+
+        <div class="nav">
+            <div class="sp1">
+                <span class="headName">EMI BANK</span>
+            </div>
+          <div class="sp2">
+            <button class="clbt" onclick="redirect_home()">Back to home</button>
+          </div>
+         
+        </div>
+
+        <div id="login">
+         <h1>Login</h1>
+
+         <div>
+             <input type="text" placeholder="Account Number" id="input_acc">
+             <button onclick="check()">Login</button>
+         </div>
+
+        </div>
+
+        <div id="display">
+            <h1>Account Data</h1>
+            <div class="acc_data_formatter">
+              <div class="splitter1">
+                <span class="acc_dtls">Account holder Name </span>
+                <strong><span id="acc_name"></span></strong>
+              </div>
+              <div class="splitter1">
+                <span class="acc_dtls">Account Number </span>
+                <strong><span id="acc_num"></span></strong>
+              </div>
+              <div class="splitter1">
+                <span class="acc_dtls">Account Balence </span>       
+                <strong><span id="acc_bal_sav"></span></strong>
+              </div>
+              <div class="splitter1">
+                <span class="acc_dtls"> Age </span>
+                <strong><span id="acc_age"></span></strong>
+              </div>
+              <div class="splitter1">
+                <span class="acc_dtls"> Date of Birth </span>
+                <strong><span id="acc_dob"></span></strong>
+              </div>
+              <div class="splitter1">
+                <span class="acc_dtls">Location </span>
+                <strong><span id="acc_location"></span></strong>
+              </div>
+              <div class="splitter1">
+                <span class="acc_dtls">State </span>
+                <strong><span id="acc_state"></span></strong>
+              </div>
+              <div class="splitter1">
+                <span class="acc_dtls">Country </span>
+                <strong><span id="acc_country"></span></strong>
+              </div>
+              <div class="splitter1">
+                <span class="acc_dtls">Email Id </span>
+                <strong><span id="acc_email"></span></strong>
+              </div>
+              
+              <div>
+                <button onclick="redirect_money()">Withdrow or deposite money</button>
+              </div>
+            </div>
+          </div>
+    </div>
+    </div>
+</body>
+
+<script>
+     let data = JSON.parse(localStorage.getItem("userdata"));
+     function check(){
+
+     let login_acc = document.getElementById("input_acc").value ;
+     //console.log(login_acc)
+     
+     for(let user of data){
+         if(login_acc == user.acc_num){
+
+            let name = user.name;
+            let accNum = user.acc_num;
+            let age = user.yb;
+            let dob = user.age;
+            let aclocation = user.location;
+            let state = user.state;
+            let country = user.country;
+            let email = user.email;
+            let savings_depo = user.deposit;
+            let account_type = user.acc_type;
+
+            let login_data = {name,accNum,age,dob,aclocation,state,country,email,savings_depo,account_type}
+            display(login_data)
+         }
+   
+     }
+
+    }
+
+    function display(data){
+        console.log("details ", data)
+  let name = data.name;
+  let accNum = data.accNum;
+  let age = data.age;
+  let dob = data.dob;
+  let aclocation = data.aclocation;
+  let state = data.state;
+  let country = data.country;
+  let email = data.email;
+  let savings_depo = data.savings_depo;
+  let account_type = data.account_type; 
+
+  let d = new Date( dob )
+  year = d.getFullYear();
+    month = d.getMonth();
+    day = d.getDate();
+
+  //console.log("name is :", name)
+  document.getElementById("acc_name").innerHTML = name;
+  document.getElementById("acc_num").innerHTML = accNum;
+  document.getElementById("acc_age").innerHTML = age;
+  document.getElementById("acc_dob").innerHTML = day+"-"+month+"-"+year;
+  document.getElementById("acc_location").innerHTML = aclocation;
+  document.getElementById("acc_state").innerHTML = state;
+  document.getElementById("acc_country").innerHTML = country;
+  document.getElementById("acc_email").innerHTML = email;
+  document.getElementById("acc_bal_sav").innerHTML = savings_depo;
+
+  var selectType = document.getElementById("display");
+    if(selectType.style.display == 'none'){
+    selectType.style.display = 'block';
+    document.getElementById('login').style.display = 'none'
+    }
+    else
+    selectType.style.display = 'none'
+}
+
+function redirect_money(){
+    
+}
+
+
+function redirect_home(){
+        window.location.href="../Home/Home.html"
+    }
+</script>
+</html>

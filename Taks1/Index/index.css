@@ -110,10 +110,12 @@ span{
     display: none;
 }
 
-/* #acc_bal_sav{
-    display: none;
+button{
+    height: 3vw;
+    width: 25vw;
+    background-color: ghostwhite;
+    font-weight: bolder;
+    border: .1px solid rgba(0, 0, 0, 0.533);
+    margin-left: 37.5vw;
+    margin-top: 1vw;
 }
-
-#acc_bal_cur{
-    display: none;
-} */

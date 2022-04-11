@@ -1,4 +1,6 @@
-
+if(localStorage.getItem("userdata") == null){
+  localStorage.setItem("userdata",JSON.stringify([]));
+}
 function toggleacc(id){
     // console.log("its working")
     var selectType = document.getElementById(id);
@@ -45,87 +47,18 @@ function valiteForm(){
   let submitOk = true;
   let filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
   
+  yb = agecalculator(age)
+  //console.log("yb is ",yb)
 
   //validators
 
-  if(name.length <1 || location.length <1 || state.length <1 || country.length <1){
-    submitOk = false;
-  }
-  
-
-  if(!ValidateEmail(email)){
-    submitOk = false;
-  }
-
-  //age Calculator
-  let td =  new Date( );
-  year = td.getFullYear();
-  month = td.getMonth();
-  day = td.getDate();
-  // console.log("Year : ",year)
-  // console.log("month : ",month+1)
-  // console.log("day : ",day)
-  
-  let d = new Date( age );
-  if(td>d){
- 
-if ( !!d.valueOf() ) { // Valid date
-    year = d.getFullYear();
-    month = d.getMonth();
-    day = d.getDate();
-   
-     yb = td.getFullYear() - d.getFullYear();
-    if(yb<0){
-      alert("Invalid date of birth")
-    }
-    else{
-      let mb = td.getMonth() - d.getMonth();
-      if(mb < 0){
-        yb -=1;
-      }
-      else if(mb == 0){
-        console.log("month of birth :",mb)
-       let db = td.getDate() - d.getDate();
-       if(db > 0){
-        yb -=1;
-      }
-      }    
-      // console.log(" date of birth :",db)    
-      if(yb>68){
-        alert("You are not eligible for account opening");
-        submitOk = false;
-      }
-    }
-    // console.log("Year : ",year)
-    // console.log("month : ",month+1)
-    // console.log("day : ",day)
-} else { 
-  /* Invalid date */
-  alert("Invalid date of birth")
-  submitOk = false;
- }
-
-console.log("age :", yb)
-  }
-  else{
-    alert("Invalid date of birth")
-    submitOk = false;
-  }
-  //Account number Creator
-
-  if(acc_type == "savings"){
-    acc_num = "Sav"+acc_nm.toString();
-  }
-  else if(acc_type == "current"){
-    acc_num = "Curr"+acc_nm.toString();
-  }
-
   //form handle 
-
-  if(submitOk==false){
+  if(name.length <1 || location.length <1 || state.length <1 || country.length <1 || !ValidateEmail(email) || yb == false){
+    submitOk = false;
     alert("Please fill with valid details.");
-    return false;
   }
+
+
   else{
 
     if(acc_type == "savings"){
@@ -134,29 +67,43 @@ console.log("age :", yb)
         alert("Minimum 500 required to open Savings account")
         submitOk = false;
       }
-     
+      else{
+        acc_num = "Sav"+acc_nm.toString();
+        let userdata = {acc_type,name,age,location,state,country,email,acc_num,yb,deposit}
+        
+       
+        let locaStorage_data = JSON.parse(localStorage.getItem("userdata"));
+        locaStorage_data.push(userdata);
+        localStorage.setItem("userdata",JSON.stringify(locaStorage_data));
+        //let cusomer_Data = localStorage.setItem("userdata",JSON.stringify(userdata))
 
-      let userdata = {acc_type,name,age,location,state,country,email,acc_num,yb,deposit}
+        pageshifter()
+        return true
 
-      let cusomer_Data = localStorage.setItem("userdata",JSON.stringify(userdata));
-  
-      pageshifter()
-      return true
+      }
     }
+    
     else if(acc_type == "current"){
+     
       let deposit = document.getElementById("current_dep").value;
       if(deposit<800){
         alert("Minimum 800 required to open Current account")
         submitOk = false;
       }
-      
+      else{
+        acc_num = "Curr"+acc_nm.toString();
+        let userdata = {acc_type,name,age,location,state,country,email,acc_num,yb,deposit}
 
-      let userdata = {acc_type,name,age,location,state,country,email,acc_num,yb,deposit}
-
-      let cusomer_Data = localStorage.setItem("userdata",JSON.stringify(userdata));
-  
-      pageshifter()
-      return true
+        // if(localStorage.getItem("userdata") == null){
+        //   localStorage.setItem("userdata",JSON.stringify([]));
+        // }
+        let locaStorage_data = JSON.parse(localStorage.getItem("userdata"));
+        locaStorage_data.push(userdata);
+        localStorage.setItem("userdata",JSON.stringify(locaStorage_data));
+    
+        pageshifter()
+        return true
+      }
     }
     else{
       alert("Something went wrong, Please try again")
@@ -168,6 +115,7 @@ console.log("age :", yb)
   
 }
 
+//Email vaildation
 function ValidateEmail(email) 
 {
  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(custmmer_Data.email.value))
@@ -179,9 +127,56 @@ function ValidateEmail(email)
 }
 
 
+//Age Calculator
+function agecalculator(age){
+  let td =  new Date( );
+  year = td.getFullYear();
+  month = td.getMonth();
+  day = td.getDate();
+  
+  let d = new Date( age );
+
+  if(td > d){
+
+    if ( !!d.valueOf() ) { // Valid date
+      year = d.getFullYear();
+      month = d.getMonth();
+      day = d.getDate();
+     
+       yb = td.getFullYear() - d.getFullYear();
+         if(yb>=0){
+           let mb = td.getMonth() - d.getMonth();
+           if(mb < 0){
+           yb -=1;
+           }
+           else if(mb == 0){
+            console.log("month of birth :",mb)
+            let db = td.getDate() - d.getDate();
+              if(db > 0){
+                 yb -=1;
+               }
+        }    
+        // console.log(" date of birth :",db)    
+        if(yb>68){
+          alert("You are not eligible for account opening");
+          return false;
+        }
+        else {
+          return yb
+        }
+      }
+  }
+}
+else{
+  alert("invalid Date of birth")
+  return false
+}
+}
+
+
 function pageshifter(){
   console.log(1234)
-window.location.href="./accountdata.html";
+window.location.href="../Login/Login.html";
 }
 
 //trial 

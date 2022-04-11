@@ -43,3 +43,45 @@ button{
     border: .1px solid rgba(0, 0, 0, 0.533);
     /* margin: .5vw;    */
 }
+
+#acc_creator{
+    display: grid;
+    grid-template-columns: 20% 40%;
+}
+
+#acc_login{
+    display: grid;
+    grid-template-columns: 20% 40%;
+}
+
+.lf_btn{
+    margin-top: 5vw;
+    margin-left: 10vw;
+    background-color: black;
+    height: 15vw;
+    width: 100%;
+}
+
+.rf_btn{
+    margin-top: 5vw;
+    height: 15vw;
+    width: 80%;
+    margin-left: 10vw;
+    border: 1px solid black;
+}
+
+#rf_btn{
+    margin-top: 15vw;
+    margin-left: -15vw;
+    height: 15vw;
+    width: 15vw;
+}
+
+strong{
+    margin-top: 20px;
+}
+
+.acc_open_name{
+    padding: 5vw;
+    color: ghostwhite;
+}
