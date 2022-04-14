@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main">
+        <div class="heading">
+            <h1>User Data</h1>
+        </div>
+        
+        <div class="container">
+        <div>
+            <div id="img"></div>
+            <label>User Id : </label>
+           <strong> <span id="u_id"></span> </strong>
+        </div>
+        <div >
+            <label>First Name :</label>
+           <strong> <span id="name"></span> </strong>
+        </div>
+        <div >
+            <label>Last Name :</label>
+            <strong> <span id="l_name"></span> </strong>
+        </div>
+        <div>
+            <label>User Email :</label>
+            <strong> <span id="email"></span> </strong>
+        </div>     
+        
+            
+        </div>
+
+       </div>
+</body>
+<script>
+   let data = JSON.parse(localStorage.getItem("user_deatils"));
+   console.log(data)
+   let u_id = data.u_id;
+   let f_name = data.f_name;
+   let l_name = data.l_name;
+   let email = data.email;
+   let avatar = data.avatar;
+   show(data)
+function show(data) {
+    var html="";
+  document.getElementById("u_id").innerHTML=u_id;
+  document.getElementById("name").innerHTML=f_name;
+  document.getElementById("l_name").innerHTML=l_name;
+  document.getElementById("email").innerHTML=email;
+  const img = `<img src=${avatar} alt="User Image" style=" height: 10vw;"/>`
+  html += img;
+  document.getElementById("img").innerHTML=html;
+}
+</script>
+</html>

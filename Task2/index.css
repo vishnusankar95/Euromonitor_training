@@ -1,0 +1,40 @@
+.main{
+    width: 99%;
+    height: auto;
+    min-height: 46vw;
+    border-top: 1vw solid black;
+    border-left: 1.3vw solid black;
+}
+
+.heading{
+ text-align: center;
+}
+
+#disp_data{
+ display: grid;
+ grid-gap: 3%;
+ grid-template-columns: repeat(7,5%);
+ justify-content: center;
+}
+
+h4{
+    margin-left: 2.3vw;
+    font-size:large;
+    margin-bottom: -1vw;
+}
+
+h5{
+    color: rgba(0, 0, 0, 0.519);
+}
+
+.container{
+    margin-left: 44.5vw;
+}
+
+label{
+    font-size: 18px;
+}
+
+span{
+    font-size: large;
+}
