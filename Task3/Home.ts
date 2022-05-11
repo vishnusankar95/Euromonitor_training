@@ -23,18 +23,45 @@ else{
   console.log("Invalid input Try again")
 }
 
- const name: string  = prompt ("Enter your Name : ");
- validateName(name)
- const age : number = prompt("Enter your age : ");
- validatteAge(age) 
- const location : string = prompt("enter your country : ");
- validateCountry(location) 
- const state : string = prompt("Enter your state : ");
- validateState(state)
- const country : string = prompt("Enter your Location : ");
- validateLocation(country)
- const email_id : string = prompt("Enter your Email id : "); 
- ValidateEmail(email_id)
+ let name: string  = prompt ("Enter your Name : ");
+ while(!validateName(name)){
+  name = prompt ("Please enter a valid Name : ");
+ }
+ let age : number = prompt("Enter your Age : ");
+ while(!validatteAge(age)){
+   age = prompt("Please enter a valid Age : ");
+ } 
+ let location : string = prompt("Enter your Country : ");
+ while(!validateName(location)){
+   location = prompt("Please enter a valid Country : ")
+ }
+ let state : string = prompt("Enter your State : ");
+ while(!validateName(state)){
+  state = prompt("Please enter a Valid State : ")
+ }
+ let country : string = prompt("Enter your Location : ");
+ while(!validateName(country)){
+   country = prompt("Please enter a valid Location : ")
+ }
+ let email_id : string = prompt("Enter your Email id : "); 
+ while(!ValidateEmail(email_id)){
+   email_id = prompt("Please Enter a valid Email id : ")
+ }
+ let deposite : number;
+ if(selectAccType==="1"){
+  let savDepo = prompt("Enter Amount Minimum 500 required for opening Savings Account : ")
+    while(savDepo < 500){
+      savDepo =prompt("To open Savings Account, Deposite a minimum of 500 : ")
+    }
+      deposite = savDepo;
+ }
+ else if(selectAccType==="2"){
+  let curDepo = prompt("Enter Amount Minimum 800 required for opening Savings Account : ")
+  while(curDepo < 800){
+    curDepo= prompt("To open Current Account, Deposite a minimum of 800 : ")
+  }
+    deposite = curDepo;
+ }
 
   class User{
     protected userName : string;
@@ -44,8 +71,9 @@ else{
     protected userLocation : string;
     protected userEmailId : string;
     protected accountNum : string;
+    protected deposite : number;
   
-    constructor(name:string, age:number,country:string,state:string,location:string,email:string,accNum : string){
+    constructor(name:string, age:number,country:string,state:string,location:string,email:string,accNum : string, depo:number){
       this.userName = name; 
       this.userAge = age;
       this.userCountry = country;
@@ -53,11 +81,13 @@ else{
       this.userLocation = location;
       this.userEmailId = email;
       this.accountNum = accNum;
+      this.deposite = depo;
+
     }
   }
 
-  if(validateName(name) && validatteAge(age) && validateCountry(country) && validateState(state) && validateLocation(location) && ValidateEmail(email_id)){
-     let newUser = new User(name, age, country, state, location, email_id,accNum);
+  if(validateName(name) && validatteAge(age) && validateName(country) && validateName(state) && validateName(location) && ValidateEmail(email_id)){
+     let newUser = new User(name, age, country, state, location, email_id,accNum,deposite);
      console.log("Your Account have been created ")
      console.log("Your Account Details")
      console.log(newUser)
@@ -77,13 +107,12 @@ else{
 
 //******************Validation*******************\\ 
 function validatteAge(age){
-if(age>68){
+if((age>68) || (age <10 )){
   console.log("You are not eligible to open an Account")  
   process.exit()
 }
 else if(age === ''){
-  console.log("Age is missing")
-  process.exit()
+   return false;
 }
 else{
   return true
@@ -92,42 +121,7 @@ else{
 
 function validateName(name){
   if(name.length<2){
-    console.log("Enter a Valid name")
-    process.exit()
-
-  }
-  else{
-    return true
-  }
-}
-
-function validateCountry(country){
-  if(country.length<2){
-    console.log("Enter a Valid country")
-    process.exit()
-
-  }
-  else{
-    return true
-  }
-}
-
-function validateState(state){
-  if(state.length<2 ){
-    console.log("Enter a Valid state")
-    process.exit()
-
-  }
-  else{
-    return true
-  }
-}
-
-function validateLocation(location){
-  if(location.length<2){
-    console.log("Enter a Valid location")
-    process.exit()
-
+    return false;
   }
   else{
     return true
@@ -139,9 +133,7 @@ function ValidateEmail(email) {
   {
     return (true)
   }
-    console.log("You have entered an invalid email address!")
-    process.exit()
-
+   return false
 }
 
 

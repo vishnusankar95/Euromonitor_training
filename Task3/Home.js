@@ -18,19 +18,46 @@ if (selectservice === '1') {
         console.log("Invalid input Try again");
     }
     var name_1 = prompt("Enter your Name : ");
-    validateName(name_1);
-    var age = prompt("Enter your age : ");
-    validatteAge(age);
-    var location_1 = prompt("enter your country : ");
-    validateCountry(location_1);
-    var state = prompt("Enter your state : ");
-    validateState(state);
+    while (!validateName(name_1)) {
+        name_1 = prompt("Please enter a valid Name : ");
+    }
+    var age = prompt("Enter your Age : ");
+    while (!validatteAge(age)) {
+        age = prompt("Please enter a valid Age : ");
+    }
+    var location_1 = prompt("Enter your Country : ");
+    while (!validateName(location_1)) {
+        location_1 = prompt("Please enter a valid Country : ");
+    }
+    var state = prompt("Enter your State : ");
+    while (!validateName(state)) {
+        state = prompt("Please enter a Valid State : ");
+    }
     var country = prompt("Enter your Location : ");
-    validateLocation(country);
+    while (!validateName(country)) {
+        country = prompt("Please enter a valid Location : ");
+    }
     var email_id = prompt("Enter your Email id : ");
-    ValidateEmail(email_id);
+    while (!ValidateEmail(email_id)) {
+        email_id = prompt("Please Enter a valid Email id : ");
+    }
+    var deposite = void 0;
+    if (selectAccType === "1") {
+        var savDepo = prompt("Enter Amount Minimum 500 required for opening Savings Account : ");
+        while (savDepo < 500) {
+            savDepo = prompt("To open Savings Account, Deposite a minimum of 500 : ");
+        }
+        deposite = savDepo;
+    }
+    else if (selectAccType === "2") {
+        var curDepo = prompt("Enter Amount Minimum 800 required for opening Savings Account : ");
+        while (curDepo < 800) {
+            curDepo = prompt("To open Current Account, Deposite a minimum of 800 : ");
+        }
+        deposite = curDepo;
+    }
     var User = /** @class */ (function () {
-        function User(name, age, country, state, location, email, accNum) {
+        function User(name, age, country, state, location, email, accNum, depo) {
             this.userName = name;
             this.userAge = age;
             this.userCountry = country;
@@ -38,11 +65,12 @@ if (selectservice === '1') {
             this.userLocation = location;
             this.userEmailId = email;
             this.accountNum = accNum;
+            this.deposite = depo;
         }
         return User;
     }());
-    if (validateName(name_1) && validatteAge(age) && validateCountry(country) && validateState(state) && validateLocation(location_1) && ValidateEmail(email_id)) {
-        var newUser = new User(name_1, age, country, state, location_1, email_id, accNum);
+    if (validateName(name_1) && validatteAge(age) && validateName(country) && validateName(state) && validateName(location_1) && ValidateEmail(email_id)) {
+        var newUser = new User(name_1, age, country, state, location_1, email_id, accNum, deposite);
         console.log("Your Account have been created ");
         console.log("Your Account Details");
         console.log(newUser);
@@ -59,13 +87,12 @@ else {
 }
 //******************Validation*******************\\ 
 function validatteAge(age) {
-    if (age > 68) {
+    if ((age > 68) || (age < 10)) {
         console.log("You are not eligible to open an Account");
         process.exit();
     }
     else if (age === '') {
-        console.log("Age is missing");
-        process.exit();
+        return false;
     }
     else {
         return true;
@@ -73,35 +100,7 @@ function validatteAge(age) {
 }
 function validateName(name) {
     if (name.length < 2) {
-        console.log("Enter a Valid name");
-        process.exit();
-    }
-    else {
-        return true;
-    }
-}
-function validateCountry(country) {
-    if (country.length < 2) {
-        console.log("Enter a Valid country");
-        process.exit();
-    }
-    else {
-        return true;
-    }
-}
-function validateState(state) {
-    if (state.length < 2) {
-        console.log("Enter a Valid state");
-        process.exit();
-    }
-    else {
-        return true;
-    }
-}
-function validateLocation(location) {
-    if (location.length < 2) {
-        console.log("Enter a Valid location");
-        process.exit();
+        return false;
     }
     else {
         return true;
@@ -111,6 +110,5 @@ function ValidateEmail(email) {
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
         return (true);
     }
-    console.log("You have entered an invalid email address!");
-    process.exit();
+    return false;
 }
