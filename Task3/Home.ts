@@ -1,51 +1,59 @@
+//import { User } from './Index';
+
 "use strict"
 
-import { Console } from "console";
+import { json } from "stream/consumers"
 
 export {}
+var fs = require('fs')
+var data = fs.readFileSync('db.json')
+var usersList = JSON.parse(data)
+
 const ps = require("prompt-sync")
 const prompt = ps({sigint:true}) ;
 
+//************* Input ****************/
+
 const selectservice:string = prompt("Select 1 to Start  a new Account \n Select 2 for Transaction : ")
-let accNum : string ;
+let  accountNum : string ;
 if (selectservice === '1' ){
     const selectAccType : string = prompt("Select 1 for a new Savings Account \n Select 2 for a new Current Account : ")
 
   if(selectAccType === '1'){
       let acc_nm = ( Math.random().toString().substring(2, 14));
-      accNum = "Sav" + acc_nm;
+       accountNum = "Sav" + acc_nm;
    }
   else if(selectAccType === '2'){
   let acc_nm = ( Math.random().toString().substring(2, 14));
-  accNum = "Cur" + acc_nm;
+   accountNum = "Cur" + acc_nm;
  }
 else{
   console.log("Invalid input Try again")
 }
 
- let name: string  = prompt ("Enter your Name : ");
- while(!validateName(name)){
-  name = prompt ("Please enter a valid Name : ");
+ let  userName: string  = prompt ("Enter your Name : ");
+ while(!validateName( userName)){
+  userName = prompt ("Please enter a valid Name : ");
  }
- let age : number = prompt("Enter your Age : ");
- while(!validatteAge(age)){
-   age = prompt("Please enter a valid Age : ");
+ let userAge : number = prompt("Enter your userAge : ");
+ while(!validatteuserAge(userAge)){
+   userAge = prompt("Please enter a valid userAge : ");
  } 
- let location : string = prompt("Enter your Country : ");
- while(!validateName(location)){
-   location = prompt("Please enter a valid Country : ")
+ let  userLocation : string = prompt("Enter your  userCountry : ");
+ while(!validateName( userLocation)){
+    userLocation = prompt("Please enter a valid  userCountry : ")
  }
- let state : string = prompt("Enter your State : ");
- while(!validateName(state)){
-  state = prompt("Please enter a Valid State : ")
+ let  userState : string = prompt("Enter your  userState : ");
+ while(!validateName( userState)){
+   userState = prompt("Please enter a Valid  userState : ")
  }
- let country : string = prompt("Enter your Location : ");
- while(!validateName(country)){
-   country = prompt("Please enter a valid Location : ")
+ let  userCountry : string = prompt("Enter your  userLocation : ");
+ while(!validateName( userCountry)){
+    userCountry = prompt("Please enter a valid  userLocation : ")
  }
- let email_id : string = prompt("Enter your Email id : "); 
- while(!ValidateEmail(email_id)){
-   email_id = prompt("Please Enter a valid Email id : ")
+ let  userEmailId : string = prompt("Enter your Email id : "); 
+ while(!ValidateEmail( userEmailId)){
+    userEmailId = prompt("Please Enter a valid Email id : ")
  }
  let deposite : number;
  if(selectAccType==="1"){
@@ -62,10 +70,11 @@ else{
   }
     deposite = curDepo;
  }
-
+ 
+ //***************Class For Users *******************/
   class User{
     protected userName : string;
-    protected userAge : number;
+    protected useruserAge : number;
     protected userCountry : string;
     protected userState : string;
     protected userLocation : string;
@@ -73,24 +82,29 @@ else{
     protected accountNum : string;
     protected deposite : number;
   
-    constructor(name:string, age:number,country:string,state:string,location:string,email:string,accNum : string, depo:number){
-      this.userName = name; 
-      this.userAge = age;
-      this.userCountry = country;
-      this.userState = state;
-      this.userLocation = location;
+    constructor(usrName:string, userAge:number, userCountry:string, userState:string, userLocation:string,email:string, accountNum : string, depo:number){
+      this.userName = usrName; 
+      this.useruserAge = userAge;
+      this.userCountry =  userCountry;
+      this.userState =  userState;
+      this.userLocation =  userLocation;
       this.userEmailId = email;
-      this.accountNum = accNum;
+      this.accountNum =  accountNum;
       this.deposite = depo;
 
     }
   }
 
-  if(validateName(name) && validatteAge(age) && validateName(country) && validateName(state) && validateName(location) && ValidateEmail(email_id)){
-     let newUser = new User(name, age, country, state, location, email_id,accNum,deposite);
-     console.log("Your Account have been created ")
-     console.log("Your Account Details")
-     console.log(newUser)
+  if(validateName( userName) && validatteuserAge(userAge) && validateName( userCountry) && validateName( userState) && validateName( userLocation) && ValidateEmail( userEmailId)){
+    let newUser = new User(userName, userAge, userCountry, userState, userLocation, userEmailId,accountNum,deposite);
+    let userDetails = JSON.stringify(newUser)
+    fs.writeFile('db.json',userDetails,finished)
+      console.log("Your Account have been created ")
+      console.log(newUser)
+      console.log(usersList)
+     function finished(err){
+       console.log("Thank You")
+     }
   }
   else {
    console.log("Invalid inputs ! Try Again !")
@@ -106,12 +120,12 @@ else{
 }
 
 //******************Validation*******************\\ 
-function validatteAge(age){
-if((age>68) || (age <10 )){
+function validatteuserAge(userAge){
+if((userAge>68) || (userAge <10 )){
   console.log("You are not eligible to open an Account")  
   process.exit()
 }
-else if(age === ''){
+else if(userAge === ''){
    return false;
 }
 else{
