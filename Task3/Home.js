@@ -1,9 +1,11 @@
-//import { User } from './Index';
 "use strict";
 exports.__esModule = true;
+var axios_1 = require("axios");
+"use strict";
 var fs = require('fs');
 var data = fs.readFileSync('db.json');
 var usersList = JSON.parse(data);
+//console.log(usersList)
 var ps = require("prompt-sync");
 var prompt = ps({ sigint: true });
 //************* Input ****************/
@@ -77,21 +79,40 @@ if (selectservice === '1') {
     }());
     if (validateName(userName) && validatteuserAge(userAge) && validateName(userCountry) && validateName(userState) && validateName(userLocation) && ValidateEmail(userEmailId)) {
         var newUser = new User(userName, userAge, userCountry, userState, userLocation, userEmailId, accountNum, deposite);
-        var userDetails = JSON.stringify(newUser);
-        fs.writeFile('db.json', userDetails, finished);
-        console.log("Your Account have been created ");
+        axios_1["default"].post('http://localhost:80/AccountOwners', newUser)
+            .then(function (response) {
+            console.log(response);
+        })["catch"](function (error) {
+            console.log(error);
+        });
+        //   console.log("Your Account have been created ")
         console.log(newUser);
-        console.log(usersList);
-        function finished(err) {
-            console.log("Thank You");
-        }
     }
     else {
         console.log("Invalid inputs ! Try Again !");
     }
 }
 else if (selectservice === '2') {
-    console.log("Working on it");
+    var loginId = prompt("Enter Your Account number to login : ");
+    axios_1["default"].get("http://localhost:80/AccountOwners?accountNum=".concat(loginId))
+        .then(function (response) {
+        // console.log(response.data);
+        var serviceType = prompt("Select 1 for Deposite \n Select 2 for a new Current Debit : ");
+        if (serviceType === '1') {
+            var newDepo = Number(prompt("Enter The Amount to Deposite : "));
+            var oldDepo = Number(response.data[0].deposite);
+            newDepo += oldDepo;
+            console.log(newDepo);
+        }
+        else if (serviceType === '2') {
+            var newDepo = Number(prompt("Enter The Amount to Deposite : "));
+            var oldDepo = Number(response.data[0].deposite);
+            newDepo -= oldDepo;
+            console.log(newDepo);
+        }
+    })["catch"](function (error) {
+        console.log("Oops Something is wrong !!!");
+    });
 }
 else {
     console.log("Oops !! Wrong Entry ");

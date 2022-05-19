@@ -1,14 +1,12 @@
-//import { User } from './Index';
+import axios  from 'axios';
 
 "use strict"
 
-import { json } from "stream/consumers"
-
 export {}
-var fs = require('fs')
-var data = fs.readFileSync('db.json')
+var fs = require('fs');
+var data =  fs.readFileSync('db.json')
 var usersList = JSON.parse(data)
-
+//console.log(usersList)
 const ps = require("prompt-sync")
 const prompt = ps({sigint:true}) ;
 
@@ -91,20 +89,22 @@ else{
       this.userEmailId = email;
       this.accountNum =  accountNum;
       this.deposite = depo;
-
     }
   }
 
   if(validateName( userName) && validatteuserAge(userAge) && validateName( userCountry) && validateName( userState) && validateName( userLocation) && ValidateEmail( userEmailId)){
     let newUser = new User(userName, userAge, userCountry, userState, userLocation, userEmailId,accountNum,deposite);
-    let userDetails = JSON.stringify(newUser)
-    fs.writeFile('db.json',userDetails,finished)
-      console.log("Your Account have been created ")
-      console.log(newUser)
-      console.log(usersList)
-     function finished(err){
-       console.log("Thank You")
-     }
+    
+    axios.post('http://localhost:80/AccountOwners',newUser)
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+   
+    //   console.log("Your Account have been created ")
+       console.log(newUser)
   }
   else {
    console.log("Invalid inputs ! Try Again !")
@@ -113,7 +113,29 @@ else{
 
 }
 else if(selectservice === '2'){
-  console.log("Working on it")
+  
+  const loginId = prompt("Enter Your Account number to login : ")
+  axios.get(`http://localhost:80/AccountOwners?accountNum=${loginId}`)
+  .then(function (response) {
+   // console.log(response.data);
+   const serviceType : string = prompt("Select 1 for Deposite \n Select 2 for a new Current Debit : ")
+     if(serviceType === '1'){
+     let newDepo : number = Number(prompt("Enter The Amount to Deposite : "))
+     let oldDepo = Number(response.data[0].deposite);
+     newDepo += oldDepo;
+     console.log(newDepo)
+    }
+    else if(serviceType === '2'){
+     let newDepo : number = Number(prompt("Enter The Amount to Deposite : "))
+     let oldDepo = Number(response.data[0].deposite);
+     newDepo -= oldDepo;
+     console.log(newDepo)
+    }
+  })
+  .catch(function (error) {
+    console.log("Oops Something is wrong !!!");
+  })
+
 }
 else{
   console.log("Oops !! Wrong Entry ")
@@ -149,5 +171,3 @@ function ValidateEmail(email) {
   }
    return false
 }
-
-

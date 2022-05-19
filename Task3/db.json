@@ -1,1 +1,26 @@
-{"userName":"Manu","useruserAge":"45","userCountry":"Street 1","userState":"London","userLocation":"Uk","userEmailId":"Manu@mail.com","accountNum":"Cur997688040721","deposite":"654158"}
+{
+  "AccountOwners": [
+    {
+      "userName": "Vishnu",
+      "useruserAge": "27",
+      "userCountry": "Thodupuzha",
+      "userState": "Kerala",
+      "userLocation": "India",
+      "userEmailId": "vishnu@mail.com",
+      "accountNum": "Sav997269377829",
+      "deposite": "10000",
+      "id": 1
+    },
+    {
+      "userName": "Shivam",
+      "useruserAge": "25",
+      "userCountry": "Kanpur",
+      "userState": "Uttar Pradesh",
+      "userLocation": "India",
+      "userEmailId": "shivam@mail.com",
+      "accountNum": "Cur087318583906",
+      "deposite": "100000",
+      "id": 2
+    }
+  ]
+}
