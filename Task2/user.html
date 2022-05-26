@@ -56,5 +56,18 @@ function show(data) {
   html += img;
   document.getElementById("img").innerHTML=html;
 }
+
+getUserdetails()
+function getUserdetails(){
+   // let data = JSON.parse(localStorage.getItem("user_deatils"));
+   let u_id = data.u_id;
+
+   const fetchPromise = fetch(" https://reqres.in/api/users/"+u_id);
+   fetchPromise.then(response => {
+    var details = response.json();
+    console.log(details.data);
+    console.log("user_id",u_id)
+    });
+}
 </script>
 </html>

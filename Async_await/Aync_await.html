@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+<div>
+    <div>
+        <h2>Promise</h2>
+        <h1 id="text"></h1>
+        <button onclick="myDisplay()">Wait 3 seconds for this page to change. </button>
+    </div>
+    <div>
+        <h2>Example</h2>
+        <ul id="postlist">
+
+        </ul>
+        <button onclick="getPost()">Show Post</button>
+        <button onclick="addpost()">Add</button>
+    </div>
+    
+</div>
+
+
+</body>
+
+<script>
+    //Await
+    async function myDisplay() {
+      let myPromise = new Promise(function(resolve) {
+        setTimeout(function() {resolve("Delayed text ....!");}, 3000);
+      });
+      document.getElementById("text").innerHTML = await myPromise;
+    }
+
+ //General syntax
+    let p1 = new Promise ((resolve,reject)=>{
+        resolve()
+        })
+
+        p1.then(()=>{
+            console.log("Success..!")
+        }).catch(()=>{
+            console.log("Failed")
+        })
+
+    //new 
+    const post = [
+        {
+            title:"JavaScript async / await"
+        },
+        {
+            title:"JavaScript Promise"
+        }
+    ]
+    const getPost = () =>{
+        let lis = '';
+      setTimeout(()=>{
+        post.forEach(post=>{
+          lis+=`<li>${post.title} `;
+        })
+        document.getElementById("postlist").innerHTML = lis;
+      },2000)
+    }
+
+    const addpost = (newPost) =>{
+        return new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                let err = false;
+                if(err == undefined){
+                  err = true
+                }
+           post.push(newPost)
+           
+
+           if(err){
+               reject();
+           }
+           else{
+               resolve(getPost()); 
+           }
+           //callback();
+        },1000) 
+        })
+        
+    }
+    addpost({title:"added_post"}).then(()=>{
+        getpost();
+    })
+    .catch(()=>{
+        alert("Error")
+    })
+
+
+    </script>
+
+
+</html>
