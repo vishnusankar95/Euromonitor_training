@@ -1,0 +1,34 @@
+
+<style>
+
+  .toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #000;
+    color: white;
+    font-weight: 600;
+  }
+
+a{
+  color: ghostwhite;
+  text-decoration: none;
+}
+
+body{
+  background-color: antiquewhite;
+}
+</style>
+
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+  <a routerLink="department" >Department</a>
+</div>
+
+
+<router-outlet></router-outlet>

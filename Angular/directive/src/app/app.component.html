@@ -1,0 +1,29 @@
+<h1>Attribute Directive Example </h1>
+
+<h3>Passing Colour to directive</h3>
+<div>
+  <input type="radio" name="colors" (click)="color='lightgreen'" >Green
+  <input type="radio" name="colors" (click)="color='yellow'">Yellow
+  <input type="radio" name="colors" (click)="color='cyan'">Cyan
+</div>
+<p [appHighlight]="color" >Highlighted Text</p>
+
+<p [appHighlight]="color" defaultColor="violet">
+  Highlighted
+</p>
+
+<hr />
+<h3> Fixed highlights on mouse hover</h3>
+
+<p [appHighlight]="'yellow'" class="fontOver">Highlighted in yellow</p>
+<p appHighlight="orange" class="fontOver">Highlighted in orange</p>
+
+<hr />
+
+<!-- <h2>ngNonBindable</h2>
+<p>Use ngNonBindable to stop evaluation.</p>
+<p ngNonBindable>This should not evaluate: {{ 1 + 1 }}</p>
+
+<h3>ngNonBindable with a directive</h3>
+<div ngNonBindable [appHighlight]="'yellow'">This should not evaluate: {{ 1 +1 }}, but will highlight yellow.
+</div> -->

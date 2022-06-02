@@ -1,0 +1,15 @@
+<router-outlet></router-outlet>
+
+<p class="main">home works!</p>
+
+<h1> String interpolation </h1>
+<h2> message : {{message}}</h2>
+
+<h1> Property Binding </h1>
+<h2> <input type="text" [value]="message"></h2>
+<h1> Event Binding </h1>
+<button (click)="showdata()" > Event </button>
+
+<h1>Two Way </h1>
+  twoWay : string = "Two way we can bind "
+<input type="text"  [(ngModel)]="twoWay"/> {{twoWay}}
