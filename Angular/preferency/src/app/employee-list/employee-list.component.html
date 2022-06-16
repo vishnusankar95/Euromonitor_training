@@ -1,0 +1,22 @@
+<p>employee-list works!</p>
+<div>
+    <table class="table table-dark table-striped mt-5">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Project Id</th>
+            <th scope="col">Angular Proficiency</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let emp of employee;let i=index">
+            <td>{{i+1}}</td>
+            <td>{{emp.employeeName}}</td>
+            <td>{{emp.projectId}}</td>
+            <td><app-rating [rating]="emp.angularProficiency"></app-rating></td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+<h1></h1>

@@ -1,0 +1,13 @@
+<p>create-employee works!</p>
+<div>
+    <label>Employee ID</label> 
+    <input type="text" name='employeeId'[(ngModel)]="employee.employeeId">
+    <label>Employee name</label> 
+    <input type="text" name='employeeName'[(ngModel)]="employee.employeeName">
+    <label>ProjectID</label> 
+    <input type="text" name='projectId'[(ngModel)]="employee.projectId">
+    <label>Angular Proficiency</label> 
+    <input type="number" name='projectId'[(ngModel)]="employee.angularProficiency">
+    
+    </div>
+    <button type="button" (click)="addEmployee()">Add Data</button>
