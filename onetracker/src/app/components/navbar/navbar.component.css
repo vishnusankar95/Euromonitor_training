@@ -1,9 +1,14 @@
-.navbar-light{
-    background-color: #2a2a5e;
-}
+.mat-toolbar {
+    background:hsla(0, 100%, 99%, 0.479) ;
+    backdrop-filter: saturate(200%) blur(25px);
+    color: hsl(218, 41%, 19%) 80%,
+ }
 
-.navbar-brand{
-    color: ghostwhite;
-    font-family:cursive;
-    margin-left: 90vw;
-}
+ .spacer {
+    flex: 1 1 auto;
+  }
+
+p{
+   margin-top: 0;
+   margin-bottom: 0;
+  }
