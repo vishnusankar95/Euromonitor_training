@@ -1,26 +1,23 @@
 import {AfterViewInit, Component, ViewChild} from '@angular/core';
 
 import {MatPaginator} from '@angular/material/paginator';
-import {MatTableDataSource} from '@angular/material/table';
+import {MatTableDataSource} from '@angular/material/table'
 
 @Component({
-  selector: 'app-ticket-data',
-  templateUrl: './ticket-data.component.html',
-  styleUrls: ['./ticket-data.component.css']
+  selector: 'app-ticket-data-list',
+  templateUrl: './ticket-data-list.component.html',
+  styleUrls: ['./ticket-data-list.component.css']
 })
-export class TicketDataComponent implements AfterViewInit  {
+export class TicketDataListComponent implements AfterViewInit {
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
-   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor() { }
-
-   ngAfterViewInit() {
-     this.dataSource.paginator = this.paginator;
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
   }
-
 }
 
 export interface PeriodicElement {
@@ -28,6 +25,7 @@ export interface PeriodicElement {
   position: number;
   weight: number;
   symbol: string;
+
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [

@@ -1,3 +1,5 @@
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -7,12 +9,13 @@ import { HomeTrackerComponent } from './components/home-tracker/home-tracker.com
 import { LoginComponent } from './components/login/login.component';
 import {MatButtonModule} from '@angular/material/button'
 import { MatIconModule } from '@angular/material/icon'
+import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatSelectModule} from '@angular/material/select'
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NgModule } from '@angular/core';
 import { SignupComponent } from './components/signup/signup.component';
-//import { TicketDataComponent } from './ticket-data/ticket-data.component';
+import { TicketDataListComponent } from './shared/ticket-data-list/ticket-data-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +23,7 @@ import { SignupComponent } from './components/signup/signup.component';
     LoginComponent,
     SignupComponent,
     HomeTrackerComponent,
-    //TicketDataComponent,
+    TicketDataListComponent,
     
   ],
   imports: [
@@ -31,7 +34,9 @@ import { SignupComponent } from './components/signup/signup.component';
     BrowserAnimationsModule,
     MatButtonModule,
     MatSelectModule,
-    FormsModule
+    FormsModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
