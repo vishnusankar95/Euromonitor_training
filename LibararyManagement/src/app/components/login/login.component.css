@@ -1,0 +1,27 @@
+.main-bg {
+  text-align: center;
+}
+
+.text-decoration {
+  padding-top: 10vw;
+  font-size: 2vw;
+  color: #f44336;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+.formstyler {
+  padding-top: 2vw;
+}
+
+.form-group input {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid red;
+}
+
+.nuser {
+  margin-top: 2vw;
+}

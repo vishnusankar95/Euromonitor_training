@@ -1,0 +1,51 @@
+<div class="main-bg">
+  <div class="login-container text-c animated flipInX">
+    <div class="container-content">
+      <div class="text-decoration">
+        <span>Login to Book Store</span>
+      </div>
+      <div class="formstyler">
+        <form
+          class="margin-t"
+          #myForm="ngForm"
+          autocomplete="off"
+          (ngSubmit)="onSubmit(myForm)"
+        >
+          <div class="form-group">
+            <input
+              matInput
+              type="userName"
+              name="userName"
+              class="form-control margin-b"
+              id="floatingInput"
+              placeholder="Emai address"
+              required="true"
+              ngModel
+            />
+          </div>
+          <div class="form-group">
+            <input
+              matInput
+              type="password"
+              name="password"
+              class="form-control margin-b"
+              id="floatingPassword"
+              placeholder="*********"
+              required=""
+              ngModel
+            />
+          </div>
+          <div class="mt-top">
+            <button mat-raised-button color="warn" mat-button>Sign In</button>
+          </div>
+
+          <div class="nuser">
+            <span class="l_holder"
+              >Not a User? <a routerLink="/signup"> Sign Up</a> From here
+            </span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

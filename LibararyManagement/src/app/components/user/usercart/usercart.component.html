@@ -1,0 +1,33 @@
+<p>
+  <mat-toolbar>
+    <span class="MainHeading">Book Store</span>
+    <button mat-stroked-button color="warn">
+      <a routerLink="/userdashboard"> Book List </a>
+    </button>
+    <button mat-stroked-button color="warn">
+      <a routerLink="/home">Sign Out</a>
+    </button>
+  </mat-toolbar>
+</p>
+
+<div class="box">
+  <ng-container>
+    <mat-card class="example-card">
+      <mat-card-subtitle></mat-card-subtitle>
+      <mat-card-title>Cart is Empty</mat-card-title>
+      <mat-card-content>
+        <p>Add Books to cart</p>
+        <p>{{ longText }}</p>
+      </mat-card-content>
+      <mat-divider inset></mat-divider>
+      <mat-card-actions>
+        <button mat-stroked-button color="warn">
+          <a routerLink="/userdashboard"> Book List </a>
+        </button>
+      </mat-card-actions>
+      <mat-card-footer>
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      </mat-card-footer>
+    </mat-card>
+  </ng-container>
+</div>

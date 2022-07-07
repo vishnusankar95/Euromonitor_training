@@ -1,0 +1,56 @@
+<div class="text_headr">
+    <span class="text-decoration"> Sign Up for a new Account </span>
+</div>
+<div class="log_container">
+    <div class="text-center">
+        <form [formGroup]="signupForm" (ngSubmit)="signUp()" novalidate class="d-flex-center">
+          <div class="example-container">
+            <div>
+                <mat-form-field>
+                  <input matInput placeholder="Full Name" formControlName="fullname" >
+                  <!-- <mat-error *ngIf="signupForm.get('fullname')?.invalid && (signupForm.get('fullname')?.dirty || signupForm.get('fullname')?.touched) && signupForm.get('fullname')?.errors?.required">
+                    Full Name is required
+                  </mat-error> -->
+                </mat-form-field>
+              </div>
+            <div>
+              <mat-form-field>
+                <input matInput placeholder="Email" formControlName="email">
+                <mat-error *ngIf="!signupForm.get('email')?.errors?.['required'] && (signupForm.get('email')?.errors?.['pattern'])">
+                  Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="signupForm.get('email')?.invalid && (signupForm.get('email')?.dirty || signupForm.get('email')?.touched) && signupForm.get('email')?.errors?.['required']">
+                  Email is required
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="mt-top-2">
+              <mat-form-field>
+                <input matInput type="password" placeholder="Password" formControlName="password">    
+                <mat-error *ngIf="!signupForm.get('password')?.errors?.['required']">
+                  Password length must be greater than or equal to 8 and password must contain one or more uppercase , lowercase , numeric and special characters
+                </mat-error>
+                <mat-error *ngIf="signupForm.get('password')?.invalid && (signupForm.get('password')?.dirty || signupForm.get('password')?.touched) && signupForm.get('password')?.errors?.['required']">
+                  Password is required
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                  <input matInput placeholder="Mobile" formControlName="mobile" >
+                  <!-- <mat-error *ngIf="signupForm.get('mobile')?.invalid && (signupForm.get('mobile')?.dirty || signupForm.get('mobile')?.touched) && signupForm.get('mobile')?.errors?.required">
+                    Mobile number is required
+                  </mat-error> -->
+                </mat-form-field>
+              </div>
+            <div class="mt-top">
+              <button [disabled]="!signupForm.valid" mat-raised-button color="warn" mat-button>Sign In</button>
+            </div>
+          </div>
+        </form>
+        <div class="nuser">
+            <span class="l_holder">Already a user?  <a routerLink="/login" > Login</a> From here </span>
+        </div>
+        
+      </div>
+</div>

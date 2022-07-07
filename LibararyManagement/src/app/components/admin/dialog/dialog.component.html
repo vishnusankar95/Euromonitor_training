@@ -1,0 +1,40 @@
+<h1 mat-dialog-title>Add New Book</h1>
+<div mat-dialog-content>
+   <form [formGroup]="bookForm">
+    <mat-form-field appearance="outline">
+        <mat-label>Book Name</mat-label>
+        <input formControlName="btitle" matInput placeholder="Book Name">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Book Catogory</mat-label>
+        <mat-select formControlName="bcatag" placeholder="Category">
+            <mat-option value="Action">Action</mat-option>
+            <mat-option value="Adventure">Adventure</mat-option>
+            <mat-option value="Comedy">Comedy</mat-option>
+            <mat-option value="Drama">Drama</mat-option>
+            <mat-option value="Thriller">Thriller</mat-option>
+            <mat-option value="Romance">Romance</mat-option>
+            <mat-option value="Satire">Satire</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+      <mat-label>Number of Copies</mat-label>
+      <input matInput type="number" formControlName="bcopies" placeholder="Number of Copies">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+            <mat-label>Release Date</mat-label>
+            <input formControlName="bdate" matInput [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Auther</mat-label>
+        <input formControlName="bauthor" matInput placeholder="Book Auther">
+      </mat-form-field>
+   </form>
+</div>
+<div mat-dialog-action [align]="'end'">
+  <button mat-stroked-button color="Primary" mat-dialog-close>Close</button>
+  <button style="margin-left:8px" mat-stroked-button color="warn" mat-dialog-close (click)="addBooks()">{{actionBtn}}</button>
+</div>

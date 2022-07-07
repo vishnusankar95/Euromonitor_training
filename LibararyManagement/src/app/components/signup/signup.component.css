@@ -1,0 +1,53 @@
+
+
+.text_headr{
+    padding-top: 12vw;
+}
+
+.text-decoration{
+    margin-left: 40vw;
+    font-size: 2vw;
+    color: #f44336;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+}
+
+.log_container{
+    padding-top: 3vw;
+    height: 15vw;
+}
+.text-center{
+    text-align: center;
+}
+.example-container{
+    /* height: 50%; */
+    width: 20%;
+    text-align: left;
+}
+.d-flex-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mat-form-field{
+    width: 100%;
+}
+.mt-top{
+    margin-top: 30px;
+}
+.mt-top-2{
+    margin-top: 10px;
+}
+
+.nuser{
+    margin-top: 2vw;
+}
+
+.l_holder{
+    font-size: large;
+}
+
+.l_holder a{
+    text-decoration: none;
+    color:#f44336;
+}

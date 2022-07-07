@@ -1,0 +1,128 @@
+{
+  "signupUsers": [
+    {
+      "fullname": "Vishnu Sankar",
+      "email": "vishnu@mail.com",
+      "password": "Qwerty@123",
+      "mobile": "7561018727",
+      "role": "user",
+      "id": 1
+    },
+    {
+      "fullname": "Admin",
+      "email": "admin@mail.com",
+      "password": "Awerty@123",
+      "mobile": "9876543210",
+      "role": "admin",
+      "id": 2
+    }
+  ],
+  "booksData": [
+    {
+      "btitle": "Uncle Bun",
+      "bcatag": "Adventure",
+      "bcopies": 3,
+      "bdate": "2020-03-24",
+      "bauthor": "Rajith Sir",
+      "id": 3
+    },
+    {
+      "btitle": "Before Me",
+      "bcatag": "Drama",
+      "bstatus": "New",
+      "bcopies": 10,
+      "bisbn": "KSD15L14",
+      "byear": 2003,
+      "bauthor": "Rini Mariya",
+      "bpub": "DM Publications",
+      "pubname": "Ranv Kumar",
+      "bdate": "2020-03-02",
+      "id": 4
+    },
+    {
+      "btitle": "Forensic",
+      "bcatag": "Drama",
+      "bstatus": "New",
+      "bcopies": 1,
+      "bisbn": "LKD457",
+      "byear": 2009,
+      "bauthor": "Kinu Kam",
+      "bpub": "Next Day",
+      "pubname": "Neil",
+      "bdate": "2020-03-12",
+      "id": 5
+    },
+    {
+      "btitle": "No One Near Me",
+      "bcatag": "Romance",
+      "bstatus": "Damaged",
+      "bcopies": 16,
+      "bisbn": "YDS787",
+      "byear": 1997,
+      "bauthor": "Robert Carlo",
+      "bpub": "PDM PB",
+      "pubname": "Jeff Vis",
+      "bdate": "2020-03-28",
+      "id": 6
+    },
+    {
+      "btitle": "High On Love",
+      "bcatag": "Romance",
+      "bstatus": "Old",
+      "bcopies": 36,
+      "bisbn": "TKM45MK",
+      "byear": 2016,
+      "bauthor": "Balaji P",
+      "bpub": "CD Publications",
+      "pubname": "CD Balaji",
+      "bdate": "2020-03-12",
+      "id": 7
+    },
+    {
+      "btitle": "Point Blank",
+      "bcatag": "Drama",
+      "bstatus": "New",
+      "bcopies": 6,
+      "bisbn": "TBKER12",
+      "byear": 2019,
+      "bauthor": "Melvin",
+      "bpub": "Kerala Pub",
+      "pubname": "cd Brothers",
+      "bdate": "2020-04-16",
+      "id": 8
+    },
+    {
+      "btitle": "Home",
+      "bcatag": "Comedy",
+      "bcopies": 12,
+      "bdate": "2022-07-11T18:30:00.000Z",
+      "bauthor": "Vishnu",
+      "id": 11
+    },
+    {
+      "btitle": "Magic Mush",
+      "bcatag": "Adventure",
+      "bcopies": 9,
+      "bdate": "2021-06-07T18:30:00.000Z",
+      "bauthor": "Mahesh",
+      "id": 12
+    },
+    {
+      "btitle": "Shadow",
+      "bcatag": "Thriller",
+      "bcopies": 8,
+      "bdate": "2009-02-09T18:30:00.000Z",
+      "bauthor": "Sheldon",
+      "id": 13
+    },
+    {
+      "btitle": "shivam",
+      "bcatag": "Adventure",
+      "bcopies": 30,
+      "bdate": "2022-05-04T18:30:00.000Z",
+      "bauthor": "Aniket",
+      "id": 14
+    }
+  ],
+  "userbooked": []
+}
