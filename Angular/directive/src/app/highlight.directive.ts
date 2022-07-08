@@ -12,15 +12,17 @@ export class HighlightDirective {
   @Input() appHighlight = '';
 
   @HostListener('mouseenter') onMouseEnter() {
-    this.highlight(this.appHighlight || this.defaultColor || 'red');
+    this.highlight(this.appHighlight || this.defaultColor || 'green');
+    //this.el.nativeElement.style.backgroundColor = 'black'
+    this.el.nativeElement.style.fontSize = 'xxx-large'
   }
 
   @HostListener('mouseleave') onMouseLeave() {
-    this.highlight('');
+    this.highlight('')
   }
 
-  private highlight(color: string ) {
-    this.el.nativeElement.style.color = color;
+  private highlight (color: string) : void {
+    this.el.nativeElement.style.color = color
+    this.el.nativeElement.style.fontSize = '15px'
   }
-
 }
