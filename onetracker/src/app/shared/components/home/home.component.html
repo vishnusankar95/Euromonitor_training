@@ -1,0 +1,81 @@
+<!-- <div>
+  <app-home-nav></app-home-nav>
+</div>
+<div class="cardContainer">
+    <mat-grid-list cols="2" rowHeight="2:.87">
+        <mat-grid-tile>
+          <span class="material-icons warn" >camera_front</span>
+          <span class="hide l_holder">  <a routerLink="/signup" >SignUp </a></span>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <span class="material-icons warn" >login</span>
+          <span class="hide l_holder"><a routerLink="/login" >Login </a></span>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <span class="material-icons warn" >recent_actors</span>
+          <span class="hide">Raise a Ticket</span>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <span class="material-icons warn" >art_track</span>
+          <span class="hide">Ticket Status</span>
+        </mat-grid-tile>
+      </mat-grid-list>
+</div> -->
+
+<div>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav class="navList">
+    <mat-nav-list class="navList">
+      <a *ngFor="let route of routes"
+         mat-list-item  
+         [routerLink]="route.path" 
+         (click)="sidenav.toggle()"> {{route.label}}</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div style="height: 88vh;">
+        <mat-toolbar color="warn">
+          <button  mat-icon-button 
+                   aria-label="Menu"
+                   (click)="sidenav.open()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span> One Tracker</span>  
+  </mat-toolbar>
+  <main>
+    <div class="homeDiv">
+       <h1 class="header"> Solve Your PC Issues With One Tracker</h1>
+    </div>
+    <div>
+    <mat-progress-bar mode="indeterminate" color="warn"></mat-progress-bar>
+    </div>
+    <div class="stepper">
+      <div class="userManuel"><mat-label>How do we use it ?</mat-label></div>
+      <mat-stepper orientation="vertical" color="warn">
+        <mat-step>
+          <ng-template matStepLabel>Step 1</ng-template>
+          <ng-template matStepContent>
+            <p routerLink="/signup">SignUp to One Tracker if you don't have an Account</p>
+            <button mat-button matStepperNext>Next</button>
+          </ng-template>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Step 2</ng-template>
+          <ng-template matStepContent>
+            <p routerLink="/login">Login using your Credentials</p>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </ng-template>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Step 3</ng-template>
+          <p>Raise a Ticket To Resolve your Issue </p>
+          <button mat-button matStepperPrevious>Back</button>
+        </mat-step>
+      </mat-stepper>
+    </div>
+    </main>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+</div>

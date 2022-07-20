@@ -1,0 +1,101 @@
+<div>
+    <h1 mat-tialog-title>Raise Tickets from here</h1>
+    <div>
+        <div mat-dialog-tonent>
+        <form [formGroup]="ticketForm">
+            <p>
+                <mat-form-field appearance="outline">
+                  <mat-label>Ticket Id</mat-label>
+                  <input matInput placeholder="eg: 0001" formControlName="ticketId">
+                  <mat-hint>4 digits</mat-hint>
+                </mat-form-field>
+            </p>
+            <p>    
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Department</mat-label>
+                    <mat-select  placeholder="Select from Options" formControlName="department">
+                        <mat-option value="Department1">Department1</mat-option>
+                        <mat-option value="Department2">Department2</mat-option>
+                        <mat-option value="Department3">Department3</mat-option>
+                        <mat-option value="Department4">Department4</mat-option>
+                        <mat-option value="Department5">Department5</mat-option>
+                    </mat-select>
+                    <mat-hint>Choose from the options</mat-hint>
+                  </mat-form-field>
+              </p>
+
+              <p>    
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Category</mat-label>
+                    <mat-select  placeholder="Select from Options" formControlName="category">
+                        <mat-option value="Category1">Category1</mat-option>
+                        <mat-option value="Catagory2">Catagory2</mat-option>
+                        <mat-option value="Catagory3">Catagory3</mat-option>
+                        <mat-option value="Catagory4">Catagory4</mat-option>
+                        <mat-option value="Catagory5">Catagory5</mat-option>
+                    </mat-select>
+                    <mat-hint>Choose from the options</mat-hint>
+                  </mat-form-field>
+              </p>
+
+              <p>    
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Sub-Category</mat-label>
+                    <mat-select  placeholder="Select from Options" formControlName="sub_caterogy">
+                        <mat-option value="Sub-Category1">Sub-Category1</mat-option>
+                        <mat-option value="Sub-Catagory2">Sub-Catagory2</mat-option>
+                        <mat-option value="Sub-Catagory3">Sub-Catagory3</mat-option>
+                        <mat-option value="Sub-Catagory4">Sub-Catagory4</mat-option>
+                        <mat-option value="Sub-Catagory5">Sub-Catagory5</mat-option>
+                    </mat-select>
+                    <mat-hint>Choose from the options</mat-hint>
+                  </mat-form-field>
+              </p>
+
+              <p>    
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Status</mat-label>
+                    <mat-select  placeholder="Select from Options" formControlName="status">
+                        <mat-option value="open">Open</mat-option>
+                        <mat-option value="inprogress">InProgress</mat-option>
+                        <mat-option value="closed">Close</mat-option>
+                    </mat-select>
+                    <mat-hint>Choose from the options</mat-hint>
+                  </mat-form-field>
+              </p>
+
+              <p>
+                <mat-form-field appearance="outline">
+                  <mat-label>Customer</mat-label>
+                  <input matInput placeholder="eg: Peter" formControlName="customer">
+                  <mat-hint>First name</mat-hint>
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Choose a date</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="issueDate">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+            </p>
+        </form>
+
+            <p> 
+                <mat-label>Root cause Analysis</mat-label>
+                <button mat-stroked-button disabled>Disabled</button>
+            </p>
+
+            <div mat-dialog-action [align]="'end'">
+                <button mat-raised-button color="warn" >Close</button>
+                <button mat-raised-button color="warn" (click)="addTicket()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

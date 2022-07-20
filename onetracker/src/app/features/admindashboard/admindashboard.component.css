@@ -1,0 +1,35 @@
+.l_holder {
+    font-family: 'Roboto';
+    font-size: larger;
+  text-decoration: none;
+  color: #fff;
+}
+
+.l_holders {
+    font-family: 'Roboto';
+    font-size:medium;
+  text-decoration: none;
+  color: #fff;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+  table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  /* td, th {
+    width: 25%;
+  } */
+
+  .container{
+    max-width: 90%;
+    margin: 0 auto;
+  }

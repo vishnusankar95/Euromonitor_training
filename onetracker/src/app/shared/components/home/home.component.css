@@ -1,0 +1,64 @@
+.example-card {
+    max-width: 400px;
+    margin-bottom: 8px;
+  }
+  .ot{
+    font-size: xx-large;
+  }
+  mat-grid-tile {
+    background: #fff;
+  }
+
+  .cardContainer{
+    margin : 1vw;
+    background-color: #f44336;
+  }
+
+  .warn{
+    font-size: 2vw;
+    color: #f44336;
+  }
+  
+  .warn:hover + .hide{
+    display: block;
+  }
+
+  .hide {
+    display: none;
+    font-size: 3vw;
+    color: #f44336;
+  }
+
+  .l_holder a{
+    text-decoration: none;
+    color: #f44336;
+   }
+
+  main {
+    margin: 20px;
+  }
+
+  .navList{
+    width: 20%;
+    
+  }
+
+  .homeDiv{
+    margin: auto;
+    width: 37%;
+    padding: 10px;
+  }
+
+  .header{
+    color: #f44336;
+    font-size: xx-large;
+  }
+
+  .stepper{
+    margin : 2vw;
+  }
+
+  .userManuel{
+    margin: 2vw;
+    font-size: large;
+  }

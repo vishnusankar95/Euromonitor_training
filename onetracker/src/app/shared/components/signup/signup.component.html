@@ -1,0 +1,71 @@
+<div>
+    <app-home-nav></app-home-nav>
+</div>
+<div class="cardContainer">
+<mat-grid-list cols="2" rowHeight=".9:.7">
+    <mat-grid-tile>
+        <span class="material-icons warn" >camera_front</span>
+        <span class="non_hide">SignUP</span>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <div class="formstyler">
+        <form
+        class="margin-t"
+        autocomplete="off"
+        [formGroup]="signupForm" (ngSubmit)="signUp()"
+      >
+      <mat-form-field class="example-full-width inputContainer" appearance="fill">  
+        <mat-label>Full Name</mat-label>
+        <input type="email" matInput formControlName="fullname" [errorStateMatcher]="matcher"
+               placeholder="Ex. pat@example.com">
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Full Name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width inputContainer" appearance="fill">    
+        <mat-label>Number</mat-label>
+        <input type="email" matInput formControlName="mobile" [errorStateMatcher]="matcher"
+               placeholder="Ex. pat@example.com">
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Number is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width inputContainer" appearance="fill">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput formControlName="email" [errorStateMatcher]="matcher"
+                 placeholder="Ex. pat@example.com">
+          <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="emailFormControl.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width inputContainer" appearance="fill">
+          <mat-label>Password</mat-label>
+          <input type="email" matInput matInput formControlName="password" [errorStateMatcher]="matcher"
+                 placeholder="Ex. pat@example.com">
+          <mat-error *ngIf="emailFormControl.hasError('required')">
+            Password <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <div class="mt-top">
+            <button mat-stroked-button color="warn" class="loginbutton">
+                <span class="material-icons warn_long" >camera_front</span>
+                <span>SignUp</span>
+            </button>
+          </div>
+      </form>
+    </div>
+      </mat-grid-tile>
+</mat-grid-list>
+</div>
+
+<div class="nuser">
+    <strong class="l_holder"
+      >Already a User? <a routerLink="/login"> Login</a> From here
+    </strong>
+  </div>

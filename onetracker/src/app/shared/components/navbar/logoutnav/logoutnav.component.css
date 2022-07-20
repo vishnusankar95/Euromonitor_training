@@ -1,0 +1,19 @@
+
+
+.l_holder {
+    font-family: 'Roboto';
+    font-size: larger;
+  text-decoration: none;
+  color: #fff;
+}
+
+.l_holders {
+    font-family: 'Roboto';
+    font-size:medium;
+  text-decoration: none;
+  color: #fff;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+  }

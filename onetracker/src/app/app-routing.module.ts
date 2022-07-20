@@ -1,14 +1,19 @@
 import { RouterModule, Routes } from '@angular/router';
 
-import { HomeTrackerComponent } from './components/home-tracker/home-tracker.component';
-import { LoginComponent } from './components/login/login.component';
+import { AdmindashboardComponent } from './features/admindashboard/admindashboard.component';
+import { HomeComponent } from './shared/components/home/home.component';
+import { LoginComponent } from './shared/components/login/login.component';
 import { NgModule } from '@angular/core';
-import { SignupComponent } from './components/signup/signup.component';
+import { SignupComponent } from './shared/components/signup/signup.component';
+import { UserdashboardComponent } from './features/userdashboard/userdashboard.component';
 
 const routes: Routes = [
+  {path:'',redirectTo:'/home',pathMatch:'full'},
+  {path:"home",component:HomeComponent},
   {path:'login',component:LoginComponent},
-  {path:'signup',component:SignupComponent},
-  {path:'home',component:HomeTrackerComponent}
+  {path:"signup",component:SignupComponent},
+   {path:"userdashboard",component:UserdashboardComponent},
+   {path:"admindashboard",component:AdmindashboardComponent}
 ];
 
 @NgModule({

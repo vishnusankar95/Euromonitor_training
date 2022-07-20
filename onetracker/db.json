@@ -1,0 +1,100 @@
+{
+  "signupUsers": [
+    {
+      "fullname": "Vishnu Sankar",
+      "email": "vishnu@mail.com",
+      "password": "Qwerty@123",
+      "mobile": "7561018727",
+      "role": "user",
+      "id": 1
+    },
+    {
+      "fullname": "Admin",
+      "email": "admin@mail.com",
+      "password": "Awerty@123",
+      "mobile": "9876543210",
+      "role": "admin",
+      "id": 2
+    },
+    {
+      "fullname": "Akash Chacko",
+      "mobile": "9895226851",
+      "email": "akash@mail.com",
+      "password": "akash@123",
+      "role": "user",
+      "id": 3
+    }
+  ],
+  "ticketList": [
+    {
+      "ticketId": "0001",
+      "department": "Department1",
+      "category": "Category1",
+      "sub_caterogy": "Sub-Category1",
+      "customer": "Vishnu",
+      "status": "open",
+      "issueDate": "2022-07-17T18:30:00.000Z",
+      "id": 1
+    },
+    {
+      "ticketId": "0002",
+      "department": "Department2",
+      "category": "Catagory2",
+      "sub_caterogy": "Sub-Catagory2",
+      "customer": "Arjun",
+      "status": "open",
+      "issueDate": "2022-07-16T18:30:00.000Z",
+      "id": 2
+    },
+    {
+      "ticketId": "0003",
+      "department": "Department3",
+      "category": "Catagory3",
+      "sub_caterogy": "Sub-Catagory3",
+      "customer": "Ayush",
+      "status": "open",
+      "issueDate": "2022-07-14T18:30:00.000Z",
+      "id": 3
+    },
+    {
+      "ticketId": "0004",
+      "department": "Department4",
+      "category": "Catagory4",
+      "sub_caterogy": "Sub-Catagory4",
+      "customer": "Sreenath",
+      "status": "open",
+      "issueDate": "2022-07-04T18:30:00.000Z",
+      "id": 4
+    },
+    {
+      "ticketId": "0005",
+      "department": "Department5",
+      "category": "Catagory5",
+      "sub_caterogy": "Sub-Catagory5",
+      "customer": "Vipin",
+      "status": "open",
+      "issueDate": "2022-07-05T18:30:00.000Z",
+      "id": 5
+    },
+    {
+      "ticketId": "0006",
+      "department": "Department1",
+      "category": "Catagory2",
+      "sub_caterogy": "Sub-Catagory3",
+      "customer": "Sayooj",
+      "status": "open",
+      "issueDate": "2022-07-01T18:30:00.000Z",
+      "id": 6
+    },
+    {
+      "ticketId": "0007",
+      "department": "Department2",
+      "category": "Catagory3",
+      "sub_caterogy": "Sub-Category1",
+      "customer": "Amal",
+      "status": "open",
+      "issueDate": "2022-07-03T18:30:00.000Z",
+      "id": 7
+    }
+  ]
+}

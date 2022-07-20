@@ -1,0 +1,49 @@
+
+  mat-grid-tile {
+    background: #fff;
+  }
+
+.warn{
+    font-size: 5vw;
+    color: #f44336;
+  }
+
+  .cardContainer{
+    margin : 1vw;
+    background-color: #f44336;
+  }
+
+  .non_hide{
+    font-size: 3vw;
+    color: #f44336;
+  }
+
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+  .inputContainer{
+    margin: .5vw;
+  }
+
+  .loginbutton{
+   margin-left: 10vw;
+   font-size: large;
+  }
+
+  .nuser{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .l_holder a{
+   text-decoration: none;
+   color: #f44336;
+  }

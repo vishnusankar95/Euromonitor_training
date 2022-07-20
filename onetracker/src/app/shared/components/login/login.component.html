@@ -1,0 +1,61 @@
+<div>
+    <app-home-nav></app-home-nav>
+</div>
+<div class="cardContainer">
+<mat-grid-list cols="2" rowHeight=".9:.7">
+    <mat-grid-tile>
+        <span class="material-icons warn" >login</span>
+        <span class="non_hide">Login</span>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <div class="formstyler">
+            <form
+              class="margin-t"
+              #myForm="ngForm"
+              autocomplete="off"
+              (ngSubmit)="onSubmit(myForm)"
+            >
+            <mat-form-field class="example-full-width inputContainer" appearance="fill">
+                <mat-label>Email</mat-label>
+                <input
+                matInput
+                type="userName"
+                name="userName"
+                class="form-control margin-b"
+                id="floatingInput"
+                placeholder="Emai address"
+                required="true"
+                ngModel
+              />
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width inputContainer" appearance="fill">
+                <mat-label>Password</mat-label>
+                <input
+              matInput
+              type="password"
+              name="password"
+              class="form-control margin-b"
+              id="floatingPassword"
+              placeholder="*********"
+              required=""
+              ngModel
+            />
+              </mat-form-field>
+              <div class="mt-top">
+                <button mat-stroked-button color="warn" class="loginbutton">
+                    <span class="material-icons warn_long" >login</span>
+                    <span>Login</span>
+                </button>
+              </div>
+            </form>
+          </div>
+      </mat-grid-tile>
+</mat-grid-list>
+</div>
+
+<div class="nuser">
+    <strong class="l_holder"
+      >Not a User? <a routerLink="/signup"> Sign Up</a> From here
+    </strong>
+  </div>
