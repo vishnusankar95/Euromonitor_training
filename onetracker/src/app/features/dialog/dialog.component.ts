@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { inject } from '@angular/core/testing';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog'
 
 import { ApiService } from './../services/api.service';
@@ -12,8 +12,8 @@ import { ApiService } from './../services/api.service';
 })
 export class DialogComponent implements OnInit {
 
-  ticketForm: any = FormGroup
-  constructor(private formBuilder: FormBuilder, private api:ApiService,
+  ticketForm: any = UntypedFormGroup
+  constructor(private formBuilder: UntypedFormBuilder, private api:ApiService,
     @Inject(MAT_DIALOG_DATA) public editData : any, private dialogRef : MatDialogRef<DialogComponent>) { }
 
   ngOnInit(): void {

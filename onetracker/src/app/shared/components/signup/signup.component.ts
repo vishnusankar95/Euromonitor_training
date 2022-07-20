@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import {UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import { Route, Router } from '@angular/router';
 
 import {ErrorStateMatcher} from '@angular/material/core';
 import { HttpClient } from '@angular/common/http';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
-isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+isErrorState(control: UntypedFormControl | null, form: FormGroupDirective | NgForm | null): boolean {
   const isSubmitted = form && form.submitted;
   return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
 }
@@ -18,10 +18,10 @@ isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | nu
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  signupForm !: FormGroup ;
-  constructor(private FormBuilder : FormBuilder, private http : HttpClient, private router:Router) {}
+  signupForm !: UntypedFormGroup ;
+  constructor(private FormBuilder : UntypedFormBuilder, private http : HttpClient, private router:Router) {}
 
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+  emailFormControl = new UntypedFormControl('', [Validators.required, Validators.email]);
 
   matcher = new MyErrorStateMatcher();
 
