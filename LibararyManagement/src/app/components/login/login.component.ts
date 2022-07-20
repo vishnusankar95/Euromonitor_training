@@ -6,20 +6,13 @@ import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  constructor(private service: MasterService) {}
+  ngOnInit(): void {}
 
-
-  constructor(
-    private service:MasterService
-  ) {}
-  ngOnInit(): void {
-  
+  onSubmit(form: NgForm) {
+    this.service.authenticateEmployee(form.value);
   }
-
-  onSubmit(form:NgForm){
-    this.service.authenticateEmployee(form.value)
-  }
-
 }
